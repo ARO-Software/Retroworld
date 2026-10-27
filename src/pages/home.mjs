@@ -1,5 +1,5 @@
 import { site, categories, info, products } from '../data.mjs';
-import { layout, esc, money, icon, picture, sortedBy, fromPrice, productCard, byId } from '../components.mjs';
+import { layout, esc, money, icon, picture, widePicture, sortedBy, fromPrice, productCard, byId } from '../components.mjs';
 
 export const file = 'index.html';
 
@@ -7,6 +7,7 @@ export default function render() {
   const hero = sortedBy('hero');
   const featured = sortedBy('featured');
   const arrivals = sortedBy('arrivals');
+  const looks = sortedBy('look').filter((p) => p.wide);
 
   const body = `
 <section class="hero" aria-label="${esc(site.drop)}">
@@ -49,7 +50,7 @@ export default function render() {
         <img src="assets/img/brand/crew-128.webp" alt="" width="56" height="56">
       </div>
     </div>
-    <div class="hero__bars" role="tablist" aria-label="Choose slide">
+    <div class="hero__bars" role="tablist" aria-label="Choose slide" style="--n:${hero.length}">
       ${hero.map((p, i) => `<button type="button" role="tab" aria-selected="${i === 0}" aria-label="Show ${esc(p.name)}" data-slide-to="${i}"><span></span></button>`).join('')}
     </div>
     <script type="application/json" data-hero-data>${JSON.stringify(hero.map((p) => ({ id: p.id, name: p.name, price: money(p.price) })))}</script>
@@ -108,6 +109,26 @@ export default function render() {
       ${arrivals.map((p, i) => productCard(p, i)).join('')}
     </div>
   </div>
+</section>
+
+<section class="lookbook" aria-labelledby="look-title">
+  <div class="bar container">
+    <h2 id="look-title" class="label">Lookbook</h2>
+    <p class="label">${esc(site.drop)}</p>
+  </div>
+  ${looks
+    .map(
+      (p, i) => `<button type="button" class="look" data-quickview="${p.id}" data-reveal aria-label="Shop the look: ${esc(p.name)}, ${money(p.price)}">
+    ${widePicture(p)}
+    <span class="look__tag">
+      <span class="look__num">${String(i + 1).padStart(2, '0')}</span>
+      <span class="look__name">${esc(p.name)}</span>
+      <span>${money(p.price)}</span>
+      <span class="look__cta">Shop the look ${icon.arrow}</span>
+    </span>
+  </button>`
+    )
+    .join('')}
 </section>
 
 <section class="story" aria-labelledby="story-title">

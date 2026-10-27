@@ -36,8 +36,14 @@ export const priceHtml = (p) =>
     ? `<span class="price"><s aria-label="Was ${money(p.was)}">${money(p.was)}</s> <span class="price__now">${money(p.price)}</span></span>`
     : `<span class="price"><span class="price__now">${money(p.price)}</span></span>`;
 
-export const picture = (p, { sizes = '(max-width: 760px) 50vw, 25vw', eager = false, cls = '' } = {}) =>
-  `<img class="${cls}" src="${img(p)}-sm.webp" srcset="${img(p)}-sm.webp 420w, ${img(p)}.webp ${p.img.w}w" sizes="${sizes}" width="${p.img.w}" height="${p.img.h}" alt="${esc(p.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+export const picture = (p, { sizes = '(max-width: 760px) 50vw, 25vw', eager = false, cls = '' } = {}) => {
+  const srcset = [`${img(p)}-sm.webp 420w`, p.img.md && `${img(p)}-md.webp ${p.img.md}w`, `${img(p)}.webp ${p.img.w}w`].filter(Boolean).join(', ');
+  return `<img class="${cls}" src="${img(p)}-sm.webp" srcset="${srcset}" sizes="${sizes}" width="${p.img.w}" height="${p.img.h}" alt="${esc(p.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+};
+
+// Landscape lookbook banner (only for products with a `wide` shot).
+export const widePicture = (p) =>
+  `<img src="${img(p)}-wide-md.webp" srcset="${img(p)}-wide-md.webp ${p.wide.md}w, ${img(p)}-wide.webp ${p.wide.w}w" sizes="100vw" width="${p.wide.w}" height="${p.wide.h}" alt="${esc(p.alt)}" loading="lazy" decoding="async">`;
 
 export const sizesHtml = (p) =>
   `<div class="sizes" role="radiogroup" aria-label="Size for ${esc(p.name)}">${p.sizes

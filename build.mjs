@@ -24,8 +24,8 @@ for (const f of (await readdir(pagesDir)).filter((f) => f.endsWith('.mjs'))) {
 const data = {
   site: { name: site.name, currency: site.currency, freeDeliveryOver: site.freeDeliveryOver, links: site.links, drop: site.drop },
   categories: Object.fromEntries([...categories, ...extraCategories].map((c) => [c.id, c.name])),
-  products: products.map(({ id, name, category, price, was, badge, colour, sizes, img, bg, alt, blurb, details, arrived, order }) => ({
-    id, name, category, price, was, badge, colour, sizes, img, bg, alt, blurb, details, arrived, order,
+  products: products.map(({ id, name, category, price, was, badge, colour, sizes, img, bg, alt, blurb, details, arrived, order, shot }) => ({
+    id, name, category, price, was, badge, colour, sizes, img, bg, alt, blurb, details, arrived, order, shot,
   })),
 };
 await writeFile(path.join(out, 'assets/js/data.js'), `export default ${JSON.stringify(data, null, 2)};\n`);

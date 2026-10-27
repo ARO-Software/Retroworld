@@ -554,7 +554,7 @@ const reels = (function () {
   const slidesWrap = $('[data-reels-slides]', node);
   const barsWrap = $('[data-reels-bars]', node);
   const toggle = $('[data-reels-toggle]', node);
-  const items = [...data.products].sort((a, b) => (a.order.featured || 99) - (b.order.featured || 99));
+  const items = data.products.filter((p) => p.shot === 'model').sort((a, b) => (a.order.featured || 99) - (b.order.featured || 99));
   const DUR = 5200;
   let k = 0, built = false, paused = false, held = false;
 
