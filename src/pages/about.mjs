@@ -4,7 +4,7 @@ import { layout, picture, byId } from '../components.mjs';
 export const file = 'about.html';
 
 export default function render() {
-  const strip = ['red-training-top', 'cable-knit-sweater', 'grey-half-zip', 'grey-fleece-joggers', 'sage-quarter-zip', 'olive-puffer-jacket'].map(byId);
+  const strip = ['red-training-top', 'cable-knit-sweater', 'grey-half-zip', 'grey-fleece-joggers', 'green-quarter-zip', 'olive-puffer-jacket'].map(byId);
   const values = [
     ['Hand-picked', 'We go through hundreds of pieces to find the few worth wearing. Brands, fabrics, fits — nothing makes the cut by accident.'],
     ['Cleaned & checked', 'Every item is washed, steamed and inspected for flaws before it is photographed. If something is not perfect, we tell you.'],
