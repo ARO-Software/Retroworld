@@ -192,7 +192,7 @@ function renderBag() {
     .map((l, i) => {
       const p = P[l.id];
       return `<div class="line-item" style="animation-delay:${i * 40}ms">
-        <button type="button" class="line-item__img" data-quickview="${p.id}" style="background:${p.bg}" aria-label="View ${p.name}"><img src="${src(p, true)}" alt="" width="84" height="105"></button>
+        <button type="button" class="line-item__img" data-quickview="${p.id}" style="background-color:${p.bg}" aria-label="View ${p.name}"><img src="${src(p, true)}" alt="" width="84" height="105"></button>
         <div>
           <h3>${p.name}</h3>
           <p class="line-item__meta">Size ${l.size} · ${p.colour}</p>
@@ -277,7 +277,7 @@ function openQuickView(id) {
   qv.dataset.id = id;
   const media = $('[data-qv-media]', qv);
   media.replaceChildren(el('img', { src: src(p), alt: p.alt, width: p.img.w, height: p.img.h }));
-  media.style.background = p.bg;
+  media.style.backgroundColor = p.bg;
   if (p.badge) media.append(el('span', { className: 'tag', textContent: p.badge }));
   $('[data-qv-cat]', qv).textContent = `${data.categories[p.category]} · ${p.colour}`;
   $('[data-qv-name]', qv).textContent = p.name;
@@ -317,7 +317,7 @@ function runSearch() {
   $('[data-search-count]').textContent = terms.length ? `${hits.length} result${hits.length === 1 ? '' : 's'} for “${q}”` : `Everything in the drop — ${pad(hits.length)} pieces`;
   $('[data-search-results]').innerHTML = hits.length
     ? hits.map((p, i) => `<button type="button" class="result" data-quickview="${p.id}" style="--i:${i}">
-        <span class="result__img" style="background:${p.bg};display:block"><img src="${src(p, true)}" alt="" width="420" height="525" loading="lazy"></span>
+        <span class="result__img" style="background-color:${p.bg};display:block"><img src="${src(p, true)}" alt="" width="420" height="525" loading="lazy"></span>
         <p><span>${mark(p.name)}</span><span>${fmt(p.price)}</span></p></button>`).join('')
     : `<p style="grid-column:1/-1;color:var(--muted)">Nothing matches that — try “fleece” or “jacket”.</p>`;
 }

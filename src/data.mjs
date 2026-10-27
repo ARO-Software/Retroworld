@@ -45,7 +45,7 @@ export const products = [
     colour: 'Washed olive / black',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 1000, h: 1257 },
-    bg: '#d9c7a4',
+    bg: '#e1ddd4',
     alt: 'Olive puffer jacket with a black yoke on an illustrated model in front of sandstone arches',
     blurb:
       'A boxy, cloud-soft puffer in washed olive with a contrast black yoke. Warm enough for January nights in Irbid, light enough to throw on every day.',
@@ -63,7 +63,7 @@ export const products = [
     colour: 'Club red',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 579, h: 799 },
-    bg: '#e6d9f2',
+    bg: '#e1ddd4',
     alt: 'Red football training top with a sponsor print on an illustrated model over a lilac retro grid',
     blurb:
       'An early-2000s football training top in loud club red, padded through the body with the original sponsor print. Terrace energy, every day.',
@@ -81,7 +81,7 @@ export const products = [
     colour: 'Camel',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 595, h: 802 },
-    bg: '#9dbad6',
+    bg: '#e1ddd4',
     alt: 'Camel cable-knit quarter-zip sweater on an illustrated model in front of retro stripes and a court',
     blurb:
       'Chunky cable-knit quarter-zip in warm camel, still carrying its original tag. The kind of knit that only gets better with every winter.',
@@ -99,7 +99,7 @@ export const products = [
     colour: 'Heather grey',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 594, h: 799 },
-    bg: '#efd98d',
+    bg: '#e1ddd4',
     alt: 'Heather grey half-zip fleece sweatshirt on an illustrated model against a yellow wall',
     blurb:
       'Brushed-back heather grey fleece with a half zip and stand collar. Soft, heavy and easy to live in — the piece you will reach for first.',
@@ -117,7 +117,7 @@ export const products = [
     colour: 'Heather grey',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 592, h: 799 },
-    bg: '#a9c4cc',
+    bg: '#e1ddd4',
     alt: 'Grey fleece joggers styled with a white tee on an illustrated model with colourful geometric shapes',
     blurb:
       'Classic heather grey fleece joggers with a drawcord waist and cuffed ankles. Pair with anything in the drop — or the half-zip for the full set.',
@@ -135,7 +135,7 @@ export const products = [
     colour: 'Sage',
     sizes: ['S', 'M', 'L', 'XL'],
     img: { w: 558, h: 703 },
-    bg: '#eec2b1',
+    bg: '#e1ddd4',
     alt: 'Sage green quarter-zip training top on an illustrated model in front of a sunset city skyline',
     blurb:
       'A lightweight sage quarter-zip training top with a clean, athletic cut. Layer it under the puffer or wear it on its own.',
